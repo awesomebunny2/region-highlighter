@@ -13,23 +13,33 @@ let endRegionStyle;
  */
 function activate(context) {
 
+	const config = vscode.workspace.getConfiguration('regionHighlighter');
+
+	const regionBackground = config.get('regionBackground', '#80008059');
+	const regionForeground = config.get('regionForeground', '#f0e6ff');
+	const endRegionBackground = config.get('endRegionBackground', '#0080804C');
+	const endRegionForeground = config.get('endRegionForeground', '#e6fffa');
+	const wholeLineBool = config.get('wholeLine', true);
+	const customFontWeight = config.get('fontWeight', 'bold');
+	const customFontStyle = config.get('fontStyle', 'italic');
+
 	// Define the decoration type for highlighting lines
 	regionStyle = vscode.window.createTextEditorDecorationType({
-		backgroundColor: 'rgba(128, 0, 128, 0.35)', // green for #region
-		color: '#f0e6ff',
+		backgroundColor: regionBackground,
+		color: regionForeground,
 		// color: '#ffffcc',
-		isWholeLine: true,
-		fontWeight: 'bold',
-		fontStyle: 'italic',
+		isWholeLine: wholeLineBool,
+		fontWeight: customFontWeight,
+		fontStyle: customFontStyle,
 	});
 
 	endRegionStyle = vscode.window.createTextEditorDecorationType({
-		backgroundColor: 'rgba(0, 128, 128, 0.30)', // red for #endregion
+		backgroundColor: endRegionBackground,
 		// color: '#fff5e6',
-		color: '#e6fffa',
-		isWholeLine: true,
-		fontWeight: 'bold',
-		fontStyle: 'italic',
+		color: endRegionForeground,
+		isWholeLine: wholeLineBool,
+		fontWeight: customFontWeight,
+		fontStyle: customFontStyle,
 	});
 
 	function updateRegionHighlights(editor) {

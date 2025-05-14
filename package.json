@@ -1,34 +1,82 @@
 {
-  "name": "region-highlighter",
-  "displayName": "region-highlighter",
-  "description": "Highlights #region and #endregion tags in the code",
-  "version": "0.0.1",
-  "publisher": "awesomebunny",
-  "engines": {
-    "vscode": "^1.100.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [ "onStartupFinished" ],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [{
-      "command": "region-highlighter.helloWorld",
-      "title": "Hello World"
-    }]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.100.0",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "eslint": "^9.25.1",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
-  }
+    "name": "region-highlighter",
+    "displayName": "region-highlighter",
+    "description": "Highlights #region and #endregion tags in the code",
+    "version": "1.0.0",
+    "publisher": "awesomebunny",
+    "repository": "https://github.com/awesomebunny2/region-highlighter.git",
+    "engines": {
+        "vscode": "^1.100.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [ "onStartupFinished" ],
+    "main": "./extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "Region Highlighter",
+            "properties": {
+            "regionHighlighter.regionBackground": {
+                "type": "string",
+                "default": "#80008059",
+                "description": "Background color for #region lines"
+            },
+            "regionHighlighter.regionForeground": {
+                "type": "string",
+                "default": "#f0e6ff",
+                "description": "Text color for #region lines"
+            },
+            "regionHighlighter.endRegionBackground": {
+                "type": "string",
+                "default": "#0080804C",
+                "description": "Background color for #endregion lines"
+            },
+            "regionHighlighter.endRegionForeground": {
+                "type": "string",
+                "default": "#e6fffa",
+                "description": "Text color for #endregion lines"
+            },
+            "regionHighlighter.wholeLine": {
+                "type": "boolean",
+                "default": true,
+                "description": "Check this box if the background color should be applied to the whole line"
+            },
+            "regionHighlighter.fontWeight": {
+                "type": "string",
+                "default": "bold",
+                "enum": [
+                    "normal",
+                    "bold",
+                    "bolder",
+                    "lighter"
+                ],
+                "description": "Font weight for #region and #endregion lines"
+            },
+            "regionHighlighter.fontStyle": {
+                "type": "string",
+                "default": "italic",
+                "enum": [
+                    "normal",
+                    "italic",
+                    "oblique"
+                ],
+                "description": "Font style for #region and #endregion lines"
+            }
+        }
+    }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.100.0",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "20.x",
+        "eslint": "^9.25.1",
+        "@vscode/test-cli": "^0.0.10",
+        "@vscode/test-electron": "^2.5.2"
+    }
 }

@@ -1,65 +1,62 @@
-# region-highlighter README
+# region-highlighter
 
-This is the README for your extension "region-highlighter". After writing up a brief description, we recommend including the following sections.
+region-highlighter is a simple yet customizable Visual Studio Code extension that highlights lines containing `#region` and `#endregion` comments. It helps developers visually organize code blocks across different languages and stay focused on structure.
 
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+This extension runs automatically and is lightweight, unobtrusive, and theme-friendly. Users can personalize highlight colors, font styles, and text appearance directly from VS Code settings.
 
 ---
 
-## Working with Markdown
+## Features
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+- Highlights lines containing `#region` and `#endregion` markers
+- Distinct styling for region and endregion lines
+- Fully customizable highlight and text colors
+- Adjustable font weight and style (e.g., bold, italic)
+- Option to highlight entire line or only to the end of the text
+- Automatically triggers on:
+  - Editor load
+  - Active file change
+  - Document edits
+  - Document open
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
+---
 
-## For more information
+## Requirements
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- Visual Studio Code 1.70.0 or later
 
-**Enjoy!**
+---
+
+## Extension Settings
+
+This extension contributes the following settings under `regionHighlighter`:
+
+| Setting                  | Type    | Default     | Description                                      |
+|--------------------------|---------|-------------|--------------------------------------------------|
+| `regionBackground`       | string  | `#80008059` | Background color for `#region` lines            |
+| `regionForeground`       | string  | `#f0e6ff`   | Text color for `#region` lines                  |
+| `endRegionBackground`    | string  | `#0080804C` | Background color for `#endregion` lines         |
+| `endRegionForeground`    | string  | `#e6fffa`   | Text color for `#endregion` lines               |
+| `fontWeight`             | string  | `bold`      | Font weight for both `#region` and `#endregion` |
+| `fontStyle`              | string  | `italic`    | Font style for both `#region` and `#endregion`  |
+| `wholeLine`            | boolean | `true`      | Whether the highlight spans the full line width |
+
+You can edit these settings via `Preferences → Settings → Extensions → Region Highlighter`.
+
+---
+
+## Known Issues
+
+This is the initial release (v1.0.0), and there are no known issues at this time.  
+If you encounter a bug or have a suggestion, please open an issue on GitHub or reach out via the Marketplace.
+
+---
+
+## Release Notes
+
+### 1.0.0
+
+- Initial release
+- Highlights `#region` and `#endregion` lines with customizable styles
+- Automatically runs on file load, change, edit, or switch
+- User-configurable colors, font weight/style, and highlight behavior
