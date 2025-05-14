@@ -1,0 +1,34 @@
+{
+  "name": "region-highlighter",
+  "displayName": "region-highlighter",
+  "description": "Highlights #region and #endregion tags in the code",
+  "version": "0.0.1",
+  "publisher": "awesomebunny",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [ "onStartupFinished" ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "region-highlighter.helloWorld",
+      "title": "Hello World"
+    }]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.25.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
